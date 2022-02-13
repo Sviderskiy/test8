@@ -1,0 +1,91 @@
+.portfolio-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -7px;
+  width: calc(100% + 14px);
+  &__item {
+    margin: 0 7px 30px;
+    flex-basis: calc(100% - 15px);
+    border: 1px solid #eeeeee;
+    background: $main-background-color;
+    transition: transform $mainpropertyofcubic-timeduration;
+    &:hover .portfolio-overlay,
+    &:focus .portfolio-overlay {
+      transform: translateY(0);
+    }
+  }
+  &__link {
+    display: block;
+    transition: box-shadow $mainpropertyofcubic-timeduration;
+    &:hover,
+    &:focus {
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+        0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+    }
+  }
+}
+
+.portfolio-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: start;
+  background-color: rgba(33, 150, 243, 0.9);
+  transform: translateY(101%);
+  transition: transform $mainpropertyofcubic-timeduration;
+  &__txt {
+    position: absolute;
+    padding: 63px 24px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.56;
+    color: $main-background-color;
+    letter-spacing: 0.03em;
+    height: 100%;
+  }
+}
+
+.card-container {
+  padding: 20px 24px;
+  &__titles {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 2;
+    letter-spacing: 0.06em;
+    color: $title-text-color;
+  }
+  &__services {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.88;
+    letter-spacing: 0.03em;
+    color: $primary-text-color;
+    margin-top: 4px;
+  }
+}
+
+@media (min-width: 768px) {
+  .portfolio-list {
+    margin-left: -15px;
+    margin-right: -15px;
+    &__item {
+      margin: 0 15px 30px;
+      flex-basis: calc((100% - 60px) / 2);
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .portfolio-list {
+    &__item {
+      flex-basis: calc((100% - 90px) / 3);
+    }
+  }
+}
